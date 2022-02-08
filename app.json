@@ -1,0 +1,8 @@
+{
+  "name": "sha-menu",
+  "buildpacks": [
+    {
+      "url": "heroku/java"
+    }
+  ]
+}
