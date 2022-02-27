@@ -26,6 +26,11 @@ public class AuthenticationController {
         if (userService.findByUsername(user.getUsername()).isPresent()) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
+
+        if (user.getUsername().length() < 5 || user.getPassword().length() < 5) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 
